@@ -236,7 +236,7 @@ export default function Portfolio() {
               <div className="md:col-span-7 space-y-6 text-center md:text-left">
                 <div className="space-y-2">
                   <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white font-serif">
-                    Hi, It's <span className="text-red-500 text-red-glow">Divyanshu</span>
+                    Hi, It's <span className="text-red-500 text-red-glow">Divyanshu Uttam</span>
                   </h1>
                   <h2 className="text-xl md:text-3xl font-medium tracking-wide min-h-[40px]">
                     I'm a <TypingEffect words={words} />
