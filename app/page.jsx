@@ -435,7 +435,7 @@ export default function Portfolio() {
                   tech: ["Node.js", "Cytoscape.js", "AST Parser", "JavaScript", "Algorithms"],
                   github: "https://github.com/divyanshu978",
                   live: null,
-                  image: "/modern-cms-dashboard.png"
+                  // image: "/modern-cms-dashboard.png"
                 }
               ].map((project, idx) => (
                 <motion.div
