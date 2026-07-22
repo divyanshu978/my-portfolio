@@ -34,6 +34,9 @@ function TypingEffect({ words, speed = 100, delay = 2000 }) {
   const [subIndex, setSubIndex] = useState(0)
   const [reverse, setReverse] = useState(false)
   const [text, setText] = useState("")
+// const [name, setName] = useState("");
+// const [email, setEmail] = useState("");
+// const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (subIndex === words[index].length + 1 && !reverse) {
@@ -118,6 +121,26 @@ export default function Portfolio() {
       el.scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  const handleSubmitcontact = async (e) => {
+  e.preventDefault();
+
+  const response = await fetch("/api/contacts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData)
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    alert("Message sent!");
+  } else {
+    alert("Failed to send message.");
+  }
+};
 
   return (
     <div className="min-h-screen bg-black text-neutral-100 font-sans selection:bg-red-600 selection:text-white relative overflow-hidden">
@@ -694,7 +717,7 @@ export default function Portfolio() {
               {/* Form */}
               <div className="md:col-span-7">
                 <div className="glass-effect rounded-3xl p-8 border border-red-950/20">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmitcontact} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-neutral-400">Your Name</label>
@@ -704,6 +727,7 @@ export default function Portfolio() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          
                           className="w-full bg-neutral-950 border border-neutral-800 focus:border-red-500/50 rounded-xl px-4 py-3 text-sm text-neutral-200 placeholder-neutral-600 focus:outline-none transition-colors duration-300"
                           placeholder="Divyanshu"
                         />
@@ -716,6 +740,7 @@ export default function Portfolio() {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          // onChange={(e) => setEmail(e.target.value)}
                           className="w-full bg-neutral-950 border border-neutral-800 focus:border-red-500/50 rounded-xl px-4 py-3 text-sm text-neutral-200 placeholder-neutral-600 focus:outline-none transition-colors duration-300"
                           placeholder="divyanshu@example.com"
                         />
@@ -730,6 +755,7 @@ export default function Portfolio() {
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        // onChange={(e) => setMessage(e.target.value)}
                         className="w-full bg-neutral-950 border border-neutral-800 focus:border-red-500/50 rounded-xl px-4 py-3 text-sm text-neutral-200 placeholder-neutral-600 focus:outline-none transition-colors duration-300 resize-none"
                         placeholder="Hi Divyanshu, love your blockchain research..."
                       />
