@@ -412,6 +412,7 @@ export default function Portfolio() {
               {[
                 {
                   title: "RadiantFund",
+                  category: "Web3",
                   subtitle: "Decentralized Crowdfunding Platform",
                   description: "Authored secure Solidity smart contracts managing decentralized escrow. Deployed off-chain metadata layer using Pinata IPFS to cut transaction gas costs by 40%. Designed real-time event listener using Ethers.js.",
                   tech: ["Solidity", "Hardhat", "Ethers.js", "IPFS", "Next.js"],
@@ -421,6 +422,7 @@ export default function Portfolio() {
                 },
                 {
                   title: "Accessibility Analyzer",
+                  category: "Full Stack",
                   subtitle: "Automated WCAG Compliance Engine",
                   description: "Architected Node/Express backend auditing HTML codebases concurrently in < 15s via Puppeteer & axe-core. Integrated Supabase DB with RLS policies, Nginx reverse proxy, and Jenkins CI/CD.",
                   tech: ["Node.js", "Express", "Supabase", "Puppeteer", "Docker", "Jenkins"],
@@ -430,12 +432,33 @@ export default function Portfolio() {
                 },
                 {
                   title: "CodeMap",
+                  category: "Full Stack",
                   subtitle: "AST Dependency Graph Parser",
                   description: "Designed a structural parser extracting logical references across 10+ complex code modules into structured JSON. Implemented topological sorting algorithms to resolve circular dependencies.",
                   tech: ["Node.js", "Cytoscape.js", "AST Parser", "JavaScript", "Algorithms"],
                   github: "https://github.com/divyanshu978",
                   live: null,
                   // image: "/modern-cms-dashboard.png"
+                },
+                {
+                  title: "CryptoX",
+                  category: "Backend",
+                  subtitle: "Cryptocurrency Exchange Backend",
+                  description: "Built a modular centralized exchange backend with JWT authentication, multi-asset wallets, balance locking, price-time order matching, partial fills, trade settlement, and ACID-safe ledger transactions.",
+                  tech: ["Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "WebSockets", "Docker"],
+                  github: "https://github.com/divyanshu978/cryptoX",
+                  live: null,
+                  image: "/placeholder.jpg"
+                },
+                {
+                  title: "Airbnb Clone",
+                  category: "Frontend",
+                  subtitle: "Property Booking Interface",
+                  description: "Recreated an Airbnb-style property discovery and booking experience with a responsive React interface, reusable components, and a polished listing-focused user flow.",
+                  tech: ["React", "Vite", "JavaScript", "CSS"],
+                  github: "https://github.com/divyanshu978/aribnb-clone",
+                  live: "https://aribnb-clone-swart.vercel.app/",
+                  image: "/airbnb.png"
                 }
               ].map((project, idx) => (
                 <motion.div
@@ -452,7 +475,7 @@ export default function Portfolio() {
                       />
                       <div className="absolute top-4 right-4">
                         <Badge className="bg-red-600/90 text-white border-none font-mono text-xs uppercase px-3 py-1">
-                          {project.title === "RadiantFund" ? "Web3" : "Full Stack"}
+                          {project.category}
                         </Badge>
                       </div>
                     </div>
